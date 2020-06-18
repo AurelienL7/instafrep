@@ -3,7 +3,11 @@
 }
 
 .bg-beige{
-    background-color: #FF7B77;
+    background-color: #FF7F7B;
+}
+
+.bg-beige-light{
+    background-color: #FEEAE6;
 }
 
 .card{
@@ -15,8 +19,8 @@
 }
 
 .category-img{
-    width: 74px;
-    height: 104px;
+    width: 86px;
+    height: 120px;
     overflow: hidden;
 
     border-radius: 24px;
@@ -24,4 +28,12 @@
 
 .category-radius{
     border-radius: 24px;
+}
+
+.sidebar-left-banner{
+    min-height: 280px;
+}
+
+.col-post{
+    column-width: 48px;
 }

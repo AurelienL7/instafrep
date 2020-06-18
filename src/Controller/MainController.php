@@ -14,7 +14,7 @@ class MainController extends AbstractController
     {
         return $this->render('index.html.twig', [
             'controller_name' => 'home',
-            'nb_category' => 8
+            'nb_category' => 4
         ]);
     }
 

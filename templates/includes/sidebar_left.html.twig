@@ -6,10 +6,14 @@
     </div>
 
 
-    {% for i in 1..nb_category ?? 6 %}
+    {% for i in 1..nb_category ?? 4 %}
 
         {% include 'includes/category.html.twig' with { 'id' : i } %}
 
     {% endfor %}
+    
+    <div class="sidebar-left-banner mt-10">
+        <img src="{{ asset('img/pub_banner.jpg') }}" alt="" class="h-full w-full object-cover category-radius">
+    </div>
 
 </div>
