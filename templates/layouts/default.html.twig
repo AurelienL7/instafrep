@@ -1,0 +1,19 @@
+{% extends "main/base.html.twig" %}
+
+{% block body %}
+
+    {% include "includes/menu.html.twig" %}
+
+    <div class="grid grid-cols-8 gap-12 mt-8">
+        <div class="col-span-2">{% include "includes/sidebar_left.html.twig" %}</div>
+        <div class="col-span-4">{% include "includes/posts_feed.html.twig" %}</div>
+        <div class="col-span-2">{% include "includes/sidebar_right.html.twig" %}</div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
+

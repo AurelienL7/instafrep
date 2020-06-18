@@ -1,0 +1,15 @@
+<div class="w-full h-full p-8 card">
+
+    <div class="flex justify-between mb-8">
+        <h2 class="uppercase text-sm font-semibold">Top Categories</h2>
+        <a href="#" class="uppercase text-sm font-semibold text-beige">All</a>
+    </div>
+
+
+    {% for i in 1..nb_category ?? 6 %}
+
+        {% include 'includes/category.html.twig' with { 'id' : i } %}
+
+    {% endfor %}
+
+</div>

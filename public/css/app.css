@@ -1,0 +1,27 @@
+.text-beige{
+    color: #FF7F7B;
+}
+
+.bg-beige{
+    background-color: #FF7B77;
+}
+
+.card{
+    -webkit-box-shadow: 0px 13px 46px 1px rgba(255,209,197,1);
+    -moz-box-shadow: 0px 13px 46px 1px rgba(255,209,197,1);
+    box-shadow: 0px 13px 46px 1px rgba(255,209,197,1);
+
+    border-radius: 42px
+}
+
+.category-img{
+    width: 74px;
+    height: 104px;
+    overflow: hidden;
+
+    border-radius: 24px;
+}
+
+.category-radius{
+    border-radius: 24px;
+}
