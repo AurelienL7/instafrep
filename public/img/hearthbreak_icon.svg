@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="94px" height="85px" viewBox="0 0 94 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>hearthbreak_icon</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="noun_hearth_2563703" transform="translate(-533.000000, -168.000000)" fill="#6791FB" fill-rule="nonzero">
+            <g id="hearthbreak_icon" transform="translate(533.000000, 168.000000)">
+                <path d="M39.647,67.848 L51.672,58.729 L46.32,50.162 L28.884,42.768 L47.103,27.373 L35.518,21.765 L43.898,8.315 L42.887,5.545 C32.269,-1.814 17.594,-0.785 8.137,8.672 C-2.505,19.31 -2.505,36.564 8.137,47.201 C11.377,50.444 29.956,69.021 45.526,84.591 L39.647,67.848 Z" id="Path"></path>
+                <path d="M85.867,8.672 C76.027,-1.169 60.537,-1.888 49.849,6.48 L50.781,9.029 L44.452,19.181 L58.425,25.942 L40.616,40.988 L50.55,45.202 L59.95,60.248 L46.619,70.356 L50.99,82.074 C65.978,67.087 82.802,50.257 85.867,47.201 C96.504,36.563 96.504,19.31 85.867,8.672 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

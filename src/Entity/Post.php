@@ -33,6 +33,11 @@ class Post
     private $vote;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $content;
+
+    /**
      * @ORM\Column(type="string", length=60)
      */
     private $category;
@@ -58,7 +63,7 @@ class Post
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
 
@@ -99,6 +104,18 @@ class Post
     public function setVote(int $vote): self
     {
         $this->vote = $vote;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
 
         return $this;
     }

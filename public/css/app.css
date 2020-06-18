@@ -15,7 +15,26 @@
     -moz-box-shadow: 0px 13px 46px 1px rgba(255,209,197,1);
     box-shadow: 0px 13px 46px 1px rgba(255,209,197,1);
 
-    border-radius: 42px
+    border-radius: 36px
+}
+
+.card-hover{
+    -webkit-box-shadow: 0px 13px 46px 1px rgba(255,209,197,1);
+    -moz-box-shadow: 0px 13px 46px 1px rgba(255,209,197,1);
+    box-shadow: 0px 13px 46px 1px rgba(255,209,197,1);
+
+    transition: all ease 200ms;
+
+    border-radius: 36px
+}
+
+.card-hover:hover{
+    -webkit-box-shadow: 0px 18px 54px 1px rgb(236, 185, 171);
+    -moz-box-shadow: 0px 18px 54px 1px rgba(236, 185, 171);
+    box-shadow: 0px 18px 54px 1px rgba(236, 185, 171);
+
+    transform: scale(1.1);
+
 }
 
 .category-img{
@@ -27,7 +46,7 @@
 }
 
 .category-radius{
-    border-radius: 24px;
+    border-radius: 36px;
 }
 
 .sidebar-left-banner{
@@ -35,5 +54,16 @@
 }
 
 .col-post{
-    column-width: 48px;
+    grid-template-columns: 48px 1fr 48px;
+}
+
+.col-reply{
+    grid-template-columns: 48px 1fr;
+}
+
+.friend-avatar{
+    height: 72px;
+    width: 72px;
+
+    border-radius: 16px;
 }

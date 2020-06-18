@@ -1,4 +1,20 @@
 <div class="w-full h-full p-8 card bg-beige-light">
 
-    <h2>Je suis la sidebar right</h2>
+    <div class="flex items-center justify-between mb-12">
+        <h2 class="font-semibold uppercase text-sm">Popular posts</h2>
+        <a href="#" class="text-beige font-bold text-xs uppercase">More</a>
+    </div>
+
+    {{ include('includes/popular_post.html.twig') }}
+    {{ include('includes/popular_post.html.twig') }}
+    {{ include('includes/popular_post.html.twig') }}
+
+    <div class="flex items-center justify-between mb-12 mt-16">
+        <h2 class="font-semibold uppercase text-sm">Friend suggestions</h2>
+        <a href="#" class="text-beige font-semibold text-xs uppercase">All</a>
+    </div>
+
+    {{ include('includes/friends_suggest.html.twig') }}
+    {{ include('includes/friends_suggest.html.twig') }}
+    {{ include('includes/friends_suggest.html.twig') }}
 </div>
