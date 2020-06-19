@@ -26,6 +26,8 @@ class PostFixtures extends Fixture
                 ->setVote($faker->numberBetween(0, 1000))
                 ->setContent($faker->realText())
                 ->setShareLink('url')
+                ->setShares($faker->numberBetween(0, 1000))
+                ->setReplies($faker->numberBetween(0, 1000))
                 ->setAvatar("img/avocat.jpg");
 
 

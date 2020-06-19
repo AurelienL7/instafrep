@@ -67,6 +67,16 @@ class Post
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $shares;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $replies;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -188,6 +198,30 @@ class Post
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getShares(): ?int
+    {
+        return $this->shares;
+    }
+
+    public function setShares(int $shares): self
+    {
+        $this->shares = $shares;
+
+        return $this;
+    }
+
+    public function getReplies(): ?int
+    {
+        return $this->replies;
+    }
+
+    public function setReplies(int $replies): self
+    {
+        $this->replies = $replies;
 
         return $this;
     }
