@@ -1,0 +1,46 @@
+<div class="mx-auto w-full px-8 mb-8">
+
+
+    <div class="card p-6">
+
+        <div class="grid col-reply gap-4">
+
+            <!-- AVATAR -->
+            <button class="w-full h-12 overflow-hidden rounded-lg mr-4">
+                <img class="object-cover h-full" src="{{ asset('img/avocat.jpg') }}" alt="" />
+            </button>
+
+
+            <form id="post_form" action="" class="w-full">
+                <textarea class="bg-white rounded-lg border border-gray-400 focus:outline-none h-16 w-full text-base px-4 py-2 mb-2 resize-y" placeholder="Hey what's up bruh ?"></textarea>
+            </form>
+        </div>
+
+        <div class="grid col-reply gap-4">
+            <div></div>
+
+            <div class="flex justify-between items-center w-full">
+                <div class="flex items-center">
+                    <button class="mr-4"><img src="{{ asset('img/img_icon.svg') }}" alt="" class="h-4 opacity-25 hover:opacity-100 ease-linear"></button>
+                    <button class="mr-4"><img src="{{ asset('img/gif_icon.svg') }}" alt="" class="h-4 opacity-25 hover:opacity-100 ease-linear"></button>
+                    <button class="mr-4"><img src="{{ asset('img/smiley_icon.svg') }}" alt="" class="h-4 opacity-25 hover:opacity-100 ease-linear"></button>
+
+                    <select name="" id="" form="post_form" class="p-1 border border-gray-300 rounded-full text-gray-500">
+                        <option disabled selected value="">Catégories...</option>
+                        <option value="1" >Politic</option>
+                        <option value="2">Sports</option>
+                        <option value="3">Games</option>
+                        <option value="4">Tv Shows</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button class="bg-beige py-2 px-4 rounded-full text-white" type="submit" form="post_form">Publier</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
