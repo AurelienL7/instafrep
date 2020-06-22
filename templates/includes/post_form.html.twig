@@ -17,7 +17,19 @@
 {#                </form>#}
 {#            </div>#}
 
-            {{ form(postForm, {'action': path('app_post_create')}) }}
+
+            {{ form_start(postForm, {'action': path('app_post_create')}) }}
+
+            <div class="w-full">
+                {{ form_widget(postForm.content,
+                    {'attr':
+                        {'class': 'bg-white rounded-lg border border-gray-400 focus:outline-none h-16 w-full text-base px-4 py-2 mb-2 resize-y',
+                        'placeholder' : "Hey what's up bro ?"}
+                    }
+                ) }}
+            </div>
+
+
 
 
         </div>
@@ -41,7 +53,14 @@
                 </div>
 
                 <div>
-                    <button class="bg-beige py-2 px-4 rounded-full text-white" type="submit" form="post_form">Publier</button>
+                    {{ form_widget(postForm.submit,
+                        {'attr':
+                            {'class': 'bg-beige py-2 px-4 rounded-full text-white',
+                                'label': "Publier"}
+                        }
+                    ) }}
+
+                    {{ form_end(postForm) }}
                 </div>
             </div>
         </div>
