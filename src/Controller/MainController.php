@@ -19,7 +19,15 @@ class MainController extends AbstractController
         $postsRepo = $this->getDoctrine()->getRepository(Post::class);
 
         // On va chercher tous les Posts de la BDD ...
-        $posts = $postsRepo->findAll();
+        $posts = $postsRepo->findBy(
+                [],
+                ['created_at' => 'DESC']
+            );
+        ;
+
+        // Aller chercher le post le plus populaire
+        $mostUpvotedPosts = $postsRepo->findMostUpvoted();
+
 
         $form = $this->createForm(PostType::class);
 
@@ -28,6 +36,7 @@ class MainController extends AbstractController
             'controller_name' => 'home',
             'nb_category' => 4,
             'posts' => $posts,
+            'mostUpvotedPosts' => $mostUpvotedPosts,
             'postForm' => $form->createView()
         ]);
     }

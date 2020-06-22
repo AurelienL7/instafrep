@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -18,6 +19,26 @@ class PostRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Post::class);
     }
+
+    public function findMostUpvoted() {
+        // On crée une requête qui fait :
+        // SELECT * FROM post ORDER BY votes DESC LIMIT 3
+        $query = $this->createQueryBuilder('p')
+            ->orderBy('p.vote', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery();
+
+        // Puis on dit a Doctrine de l'exécuter, et d'hydrater
+        // une instance de Post
+        $result = $query->getResult();
+
+        return $result;
+
+
+    }
+
+
+
 
     // /**
     //  * @return Post[] Returns an array of Post objects

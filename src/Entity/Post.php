@@ -86,7 +86,7 @@ class Post
     public function __construct()
     {
         // Valeurs par défaut de l'entité Post
-        $this->setAvatar("avocat.jpg");
+        $this->setAvatar("img/avocat.jpg");
         $this->setAuthor('Aurélien');
         $this->setShareLink('/');
         $this->setLikes(0);

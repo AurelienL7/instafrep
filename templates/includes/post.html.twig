@@ -21,8 +21,7 @@
             <p>{{ post.content }}</p>
 
             <div class="flex mt-4">
-            <button class="py-1 px-4 bg-blue-500 text-white rounded-full text-xs font-semibold mr-2">Category 1</button>
-            <button class="py-1 px-4 bg-red-500 text-white rounded-full text-xs font-semibold mr-2">Category 2</button>
+            <button class="py-1 px-4 bg-blue-500 text-white rounded-full text-xs font-semibold mr-2">{{ post.category }}</button>
 
             </div>
         </div>
@@ -137,14 +136,14 @@
 
             <!-- Hearth icon -->
             <span class="text-xs font-semibold mr-2">{{ post.likes }}</span>
-            <button>
-                <img src="{{ asset('img/hearth_icon.svg') }}" alt="" class="w-4 h-4 mr-3">
+            <button class="w-4 h-4 mr-3">
+                <img src="{{ asset('img/hearth_icon.svg') }}" alt="">
             </button>
 
             <!-- Hearthbreak icon -->
             <span class="text-xs font-semibold mr-2">{{ post.dislikes }}</span>
-            <button>
-                <img src="{{ asset('img/hearthbreak_icon.svg') }}" alt="" class="w-4 h-4">
+            <button class="w-4 h-4">
+                <img src="{{ asset('img/hearthbreak_icon.svg') }}" alt="">
             </button>
         </div>
     </div>

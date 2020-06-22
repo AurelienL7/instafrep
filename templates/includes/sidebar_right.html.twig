@@ -5,9 +5,9 @@
         <a href="#" class="text-beige font-bold text-xs uppercase">More</a>
     </div>
 
-    {{ include('includes/popular_post.html.twig') }}
-    {{ include('includes/popular_post.html.twig') }}
-    {{ include('includes/popular_post.html.twig') }}
+    {% for upvotedPost in mostUpvotedPosts %}
+        {{ include('includes/popular_post.html.twig') }}
+    {% endfor %}
 
     <div class="flex items-center justify-between mb-12 mt-16">
         <h2 class="font-semibold uppercase text-sm">Friend suggestions</h2>
