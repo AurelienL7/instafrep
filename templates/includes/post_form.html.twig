@@ -11,9 +11,15 @@
             </button>
 
 
-            <form id="post_form" action="" class="w-full">
-                <textarea class="bg-white rounded-lg border border-gray-400 focus:outline-none h-16 w-full text-base px-4 py-2 mb-2 resize-y" placeholder="Hey what's up bruh ?"></textarea>
-            </form>
+{#            <div class="w-full">#}
+{#                <form action="">#}
+{#                    <textarea class="bg-white rounded-lg border border-gray-400 focus:outline-none h-16 w-full text-base px-4 py-2 mb-2 resize-y" placeholder="Hey what's up bruh ?"></textarea>#}
+{#                </form>#}
+{#            </div>#}
+
+            {{ form(postForm, {'action': path('app_post_create')}) }}
+
+
         </div>
 
         <div class="grid col-reply gap-4">

@@ -3,8 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Form\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\FormTypeInterface;
 
 class MainController extends AbstractController
 {
@@ -13,29 +18,23 @@ class MainController extends AbstractController
      */
     public function index()
     {
+
         // On obtient une isntance du repository qui gère les Posts
         $postsRepo = $this->getDoctrine()->getRepository(Post::class);
 
         // On va chercher tous les Posts de la BDD ...
         $posts = $postsRepo->findAll();
 
+        $form = $this->createForm(PostType::class);
+
         // ... On les injecte dans la vue pour les afficher
         return $this->render('index.html.twig', [
             'controller_name' => 'home',
             'nb_category' => 4,
-            'posts' => $posts
+            'posts' => $posts,
+            'postForm' => $form->createView()
         ]);
     }
 
-
-    /**
-     * @Route("/login", name="login_page")
-     */
-    public function login()
-    {
-        return $this->render('login_page.html.twig', [
-            'controller_name' => 'login',
-        ]);
-    }
 
 }

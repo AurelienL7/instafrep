@@ -77,6 +77,20 @@ class Post
      */
     private $replies;
 
+
+    /**
+     * Post constructor.
+     */
+    public function __construct()
+    {
+        // Valeurs par défaut de l'entité Post
+        $this->setReplies(0);
+        $this->setShares(0);
+        $this->setVote(0);
+        $this->setCategory('Uncategorized');
+        $this->setCreatedAt(new \DateTime());
+    }
+
     public function getId(): ?int
     {
         return $this->id;
