@@ -84,10 +84,16 @@ class Post
     public function __construct()
     {
         // Valeurs par défaut de l'entité Post
+        $this->setAvatar("avocat.jpg");
+        $this->setAuthor('Aurélien');
+        $this->setShareLink('/');
+        $this->setLikes(0);
+        $this->setDislikes(0);
         $this->setReplies(0);
         $this->setShares(0);
         $this->setVote(0);
         $this->setCategory('Uncategorized');
+        $this->setUpdatedAt(new \DateTime());
         $this->setCreatedAt(new \DateTime());
     }
 
