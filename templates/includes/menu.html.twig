@@ -61,34 +61,42 @@
             </div>
 
 
+            <!-- PROFILE -->
+            {% if is_granted('ROLE_USER') %}
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
+                    <p class="font-semibold text-sm">Aurélien</p>
 
-            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
-                <p class="font-semibold text-sm">Aurélien</p>
-
-                <!-- Profile dropdown -->
-                <div class="ml-3 relative">
-                    <div>
-                        <!-- AVATAR -->
-                        <button class="h-12 w-12 overflow-hidden rounded-lg" id="menu_profile">
-                            <img class="object-cover h-full" src="{{ asset('img/avocat.jpg') }}" alt="" />
-                        </button>
-                    </div>
-
-                    <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden" id="menu_profile_dropdown">
-                        <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                            <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Your Profile
-                            </a>
-                            <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Settings
-                            </a>
-                            <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Sign out
-                            </a>
+                    <!-- Profile dropdown -->
+                    <div class="ml-3 relative">
+                        <div>
+                            <!-- AVATAR -->
+                            <button class="h-12 w-12 overflow-hidden rounded-lg" id="menu_profile">
+                                <img class="object-cover h-full" src="{{ asset('img/avocat.jpg') }}" alt="" />
+                            </button>
                         </div>
-                    </div>
 
+                        <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden" id="menu_profile_dropdown">
+                            <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                                <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Your Profile
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Settings
+                                </a>
+                                <a href="{{ path('app_logout') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Log out
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+
+                {% else %}
+
+                    <a href="{{ path('app_login') }}">Login</a>
+                    <span class="mx-2">/</span>
+                    <a href="" class="text-beige">Sign in</a>
+            {% endif %}
+
         </div>
 
     </div>

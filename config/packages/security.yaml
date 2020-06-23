@@ -36,4 +36,6 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY } #la page login est publique
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY } #la page home est publique
+        - { path: ^/*, roles: ROLE_USER } #Toutes les autres pages sont protégées
