@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "sweetalert": "^2.1.2",
     "tailwindcss": "^1.4.6"
   }
 }
