@@ -19,10 +19,7 @@ class Post
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $avatar;
+
 
     /**
      * @ORM\Column(type="string", length=60)
@@ -86,7 +83,6 @@ class Post
     public function __construct()
     {
         // Valeurs par défaut de l'entité Post
-        $this->setAvatar("img/avocat.jpg");
         $this->setAuthor('Aurélien');
         $this->setShareLink('/');
         $this->setLikes(0);
@@ -104,17 +100,6 @@ class Post
         return $this->id;
     }
 
-    public function getAvatar(): ?string
-    {
-        return $this->avatar;
-    }
-
-    public function setAvatar(string $avatar): self
-    {
-        $this->avatar = $avatar;
-
-        return $this;
-    }
 
     public function getAuthor(): ?string
     {

@@ -7,7 +7,7 @@
         <div class="col-post">
             <!-- AVATAR -->
             <button class="w-12 h-12 overflow-hidden rounded-lg">
-                <img class="object-cover h-full" src="{{ post.avatar }}" alt="" />
+                <img class="object-cover h-full" src="{{ asset('img/avocat.jpg') }}" alt="" />
             </button>
         </div>
 
@@ -16,7 +16,10 @@
         <div class="flex flex-col">
 
             <!-- Username -->
-            <p class="font-semibold mb-2">{{ post.author }}</p>
+            <div class="flex items-center mb-2">
+                <a href="" class="font-semibold">{{ post.author }}</a>
+                <p class="text-xs text-gray-500 ml-2"> - Il y a X minutes</p>
+            </div>
 
             <p>{{ post.content }}</p>
 
@@ -63,7 +66,7 @@
         </div>
     </div>
 
-    <!-- Answers lvl 1 -->
+    {#<!-- Answers lvl 1 -->
     <div class="grid col-reply gap-4 border border-solid border-gray-300 category-radius p-6 mt-6">
 
         <!-- COL 1 -->
@@ -85,9 +88,9 @@
 
         </div>
 
-    </div>
+    </div>#}
 
-    <!-- Answers lvl 2 -->
+    {#<!-- Answers lvl 2 -->
     <div class="float-left pl-4 mt-4 mr-2">
         <img src="{{ asset('img/sub_reply_line.svg') }}" alt="">
     </div>
@@ -112,7 +115,7 @@
 
         </div>
 
-    </div>
+    </div>#}
 
     <!-- Socials -->
     <div class="flex items-center justify-between mt-6 px-6">

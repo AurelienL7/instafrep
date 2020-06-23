@@ -27,8 +27,7 @@ class PostFixtures extends Fixture
                 ->setContent($faker->realText())
                 ->setShareLink('url')
                 ->setShares($faker->numberBetween(0, 1000))
-                ->setReplies($faker->numberBetween(0, 1000))
-                ->setAvatar("img/avocat.jpg");
+                ->setReplies($faker->numberBetween(0, 1000));
 
 
             $manager->persist($post);

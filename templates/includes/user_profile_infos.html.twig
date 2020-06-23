@@ -1,0 +1,37 @@
+<div class="mx-auto w-full px-8">
+
+    <!-- Card Profile -->
+    <div class="p-6 mb-8 card">
+
+        <!-- Content -->
+        <div class="flex items-center">
+
+            <div>
+                <!-- AVATAR -->
+                <button class="friend-avatar overflow-hidden rounded-lg">
+                    <img class="object-cover h-full" src="{{ asset('img/avocat.jpg') }}" alt="" />
+                </button>
+            </div>
+
+            <div class="ml-4">
+                <!-- Username -->
+                <div class="flex items-center">
+                    <a href="" class="font-semibold text-xl">{{ user.username }}</a>
+                    <span class="mx-3 text-xs">-</span>
+                    <p class="text-xs text-gray-500">{{ app.user.city }}</p>
+                </div>
+
+                <p>{{ app.user.bio }}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- End Card Profile -->
+
+    {% for post in posts %}
+        {% include "includes/post.html.twig" %}
+    {% endfor %}
+
+</div>

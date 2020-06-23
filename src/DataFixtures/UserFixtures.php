@@ -6,6 +6,7 @@ use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Faker\Factory;
 
 class UserFixtures extends Fixture
 {
@@ -22,18 +23,25 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $user = new User();
+        $faker = Factory::create('fr_FR');
 
-        $hash = $this->encoder->encodePassword($user, "azerty");
+        for($i=0; $i <= 10; $i++){
 
-        $user->setUsername('Aurélien');
-        $user->setCreatedAt(new \DateTime());
-        $user->setAnniversary(new \DateTime("1993-06-07"));
-        $user->setPassword($hash);
-        $user->setCity("Bordeaux");
+            $user = new User();
+
+            $hash = $this->encoder->encodePassword($user, "azerty");
+
+            $user->setUsername($faker->firstName);
+            $user->setCreatedAt(new \DateTime());
+            $user->setAnniversary(new \DateTime("1993-06-07"));
+            $user->setPassword($hash);
+            $user->setCity($faker->city);
+            $user->setBio($faker->text);
 
 
-        $manager->persist($user);
+            $manager->persist($user);
+
+        }
 
         $manager->flush();
     }

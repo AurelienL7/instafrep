@@ -55,11 +55,22 @@ class User implements UserInterface
     private $city;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $avatar;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $bio;
+
+    /**
      * User constructor.
      */
     public function __construct()
     {
         $this->setCreatedAt(new \DateTime());
+        $this->setAvatar("img/avocat.jpg");
     }
 
 
@@ -180,6 +191,30 @@ class User implements UserInterface
     public function setCity(?string $city): self
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getBio(): ?string
+    {
+        return $this->bio;
+    }
+
+    public function setBio(?string $bio): self
+    {
+        $this->bio = $bio;
 
         return $this;
     }
