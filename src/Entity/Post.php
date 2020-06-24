@@ -83,7 +83,6 @@ class Post
     public function __construct()
     {
         // Valeurs par défaut de l'entité Post
-        $this->setAuthor('Aurélien');
         $this->setShareLink('/');
         $this->setLikes(0);
         $this->setDislikes(0);
