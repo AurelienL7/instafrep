@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -65,6 +66,11 @@ class User implements UserInterface
     private $bio;
 
     /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $slug;
+
+    /**
      * User constructor.
      */
     public function __construct()
@@ -91,7 +97,13 @@ class User implements UserInterface
 
     public function setUsername(string $username): self
     {
+
         $this->username = $username;
+
+        // Créer un slug dès qu'un utilisateur est définit
+        $slugify = new Slugify();
+        $slug = $slugify->slugify($username);
+        $this->setSlug($slug);
 
         return $this;
     }
@@ -215,6 +227,18 @@ class User implements UserInterface
     public function setBio(?string $bio): self
     {
         $this->bio = $bio;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

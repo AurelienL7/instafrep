@@ -67,7 +67,7 @@
             {% if is_granted('ROLE_USER') %}
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
-                    <a href="{{ path('user_profile',{slug: app.user.id}) }}" class="font-semibold text-sm">{{ app.user.username }}</a>
+                    <a href="{{ path('user_profile_by_slug',{slug: app.user.slug}) }}" class="font-semibold text-sm">{{ app.user.username }}</a>
 
                     <!-- Profile dropdown -->
                     <div class="ml-3 relative">
@@ -80,7 +80,7 @@
 
                         <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden" id="menu_profile_dropdown">
                             <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                                <a href="{{ path('user_profile',{slug: app.user.id}) }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Your Profile
+                                <a href="{{ path('user_profile_by_slug',{slug: app.user.slug}) }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Your Profile
                                 </a>
                                 <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Settings
                                 </a>

@@ -18,10 +18,12 @@
                 <div class="flex items-center">
                     <a href="" class="font-semibold text-xl">{{ user.username }}</a>
                     <span class="mx-3 text-xs">-</span>
-                    <p class="text-xs text-gray-500">{{ app.user.city }}</p>
+                    <p class="text-xs text-gray-500">{{ user.city }}</p>
                 </div>
 
-                <p>{{ app.user.bio }}</p>
+                <p class="text-xs text-gray-500 mb-3">{{ user.anniversary | date("d/m/Y") }}</p>
+
+                <p>{{ user.bio }}</p>
 
             </div>
 

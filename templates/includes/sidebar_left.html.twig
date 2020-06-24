@@ -1,4 +1,5 @@
 <div class="w-full h-full p-8 card">
+    
 
     <div class="flex justify-between items-center mb-8">
         <h2 class="uppercase text-sm font-semibold">Top Categories</h2>
@@ -11,7 +12,7 @@
         {% include 'includes/category.html.twig' with { 'id' : i } %}
 
     {% endfor %}
-    
+
     <div class="sidebar-left-banner mt-10">
         <img src="{{ asset('img/pub_banner.jpg') }}" alt="" class="h-full w-full object-cover category-radius">
     </div>

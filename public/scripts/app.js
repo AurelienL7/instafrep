@@ -24,5 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
         menu_profile_dropdown.classList.toggle('hidden')
     })
 
+
+    // SCROLL REVEAL
+    ScrollReveal().reveal('.scroll-reveal', { delay: 250, reset: true });
+
 });
 

@@ -25,13 +25,13 @@ class UserFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
-        for($i=0; $i <= 10; $i++){
+        for($i=0; $i <= 50; $i++){
 
             $user = new User();
 
             $hash = $this->encoder->encodePassword($user, "azerty");
 
-            $user->setUsername($faker->firstName);
+            $user->setUsername($faker->unique()->firstName);
             $user->setCreatedAt(new \DateTime());
             $user->setAnniversary(new \DateTime("1993-06-07"));
             $user->setPassword($hash);
