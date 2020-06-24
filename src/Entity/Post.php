@@ -20,12 +20,6 @@ class Post
     private $id;
 
 
-
-    /**
-     * @ORM\Column(type="string", length=60)
-     */
-    private $author;
-
     /**
      * @ORM\Column(type="integer")
      */
@@ -76,6 +70,12 @@ class Post
      */
     private $replies;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
 
     /**
      * Post constructor.
@@ -100,18 +100,6 @@ class Post
         return $this->id;
     }
 
-
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): self
-    {
-        $this->author = $author;
-
-        return $this;
-    }
 
     public function getVote(): ?int
     {
@@ -229,6 +217,18 @@ class Post
     public function setReplies(int $replies): self
     {
         $this->replies = $replies;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

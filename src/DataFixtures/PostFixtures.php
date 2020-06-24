@@ -18,8 +18,7 @@ class PostFixtures extends Fixture
 
             $post = new Post();
 
-            $post->setAuthor($faker->firstName)
-                ->setCategory('Uncategorized')
+            $post->setCategory('Uncategorized')
                 ->setCreatedAt($faker->dateTimeThisYear)
                 ->setDislikes($faker->numberBetween(0, 1000))
                 ->setLikes($faker->numberBetween(0, 1000))
