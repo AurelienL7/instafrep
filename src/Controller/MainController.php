@@ -34,7 +34,6 @@ class MainController extends AbstractController
 
         // ... On les injecte dans la vue pour les afficher
         return $this->render('index.html.twig', [
-            'controller_name' => 'home',
             'nb_category' => 4,
             'posts' => $posts,
             'mostUpvotedPosts' => $mostUpvotedPosts,
