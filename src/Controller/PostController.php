@@ -20,18 +20,25 @@ class PostController extends AbstractController
     {
         $post = new Post();
 
+        $currentUser = $this->getUser();
+
+        $post->setAuthor($currentUser);
+
         $form = $this->createForm(PostType::class, $post);
 
         // Permet au formulaire de prendre en compte la requête HTTP
         $form->handleRequest($request);
+
 
         // On va envoyer ces données à notre BDD
         // Si on a reçu des données
         if($form->isSubmitted()){
 
 
+
             // Si les données sont valides
             if($form->isValid()){
+
 
                 // On met à jour l'entité avant de l'enregistrer
                 $post = $form->getData();

@@ -99,7 +99,7 @@ class MainController extends AbstractController
 
         // On va chercher tous les Posts de la BDD ...
         $posts = $postsRepo->findBy(
-            ['author' => $user->getUsername()],
+            ['author' => $user->getId()],
             ['created_at' => 'DESC']
         );
 

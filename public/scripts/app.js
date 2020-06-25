@@ -28,5 +28,28 @@ document.addEventListener("DOMContentLoaded", function() {
     // SCROLL REVEAL
     ScrollReveal().reveal('.scroll-reveal', { delay: 250, reset: true });
 
+
+    // UPVOTE COLOR CHANGE
+
+    var voteArrowUp = document.querySelector('.vote-arrow-up');
+    var arrowUp = document.querySelector('#noun_up_1920769');
+    var voteArrowDown = document.querySelector('.vote-arrow-down');
+    var arrowDown = document.querySelector('#noun_down_1920769');
+
+    // Up
+    voteArrowUp.addEventListener("click", function(){
+
+        arrowUp.classList.toggle('vote-arrow-active');
+        arrowDown.classList.remove('vote-arrow-active');
+    })
+
+    // Down
+    voteArrowDown.addEventListener("click", function(){
+
+        arrowDown.classList.toggle('vote-arrow-active');
+        arrowUp.classList.remove('vote-arrow-active');
+
+    })
+
 });
 
