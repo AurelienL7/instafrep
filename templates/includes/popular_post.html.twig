@@ -5,15 +5,19 @@
         <div class="flex">
             <!-- AVATAR -->
             <button class="w-12 h-12 overflow-hidden rounded-lg mr-4">
-                <img class="object-cover h-full" src="{{ asset(upvotedPost.author.avatar) }}" alt="" />
+                <a href="{{ path('user_profile_by_slug', {slug: upvotedPost.author.slug}) }}">
+                    <img class="object-cover h-full" src="{{ asset(upvotedPost.author.avatar) }}" alt=""/>
+                </a>
             </button>
 
-            <h3 class="font-bold">{{ upvotedPost.author.username }}</h3>
+            <h3 class="font-bold">
+                <a href="{{ path('user_profile_by_slug', {slug: upvotedPost.author.slug}) }}">{{ upvotedPost.author.username }}</a>
+            </h3>
         </div>
 
         <p class="text-gray-600 mt-4">{{ upvotedPost.content }}</p>
 
-        <a href="#" class="text-beige font-bold text-xs float-right mt-2 uppercase">Read</a>
+        <a href="{{ path('user_profile_by_slug', {slug: upvotedPost.author.slug}) }}" class="text-beige font-bold text-xs float-right mt-2 uppercase">Read</a>
         <span class="float-none invisible h-0">foo</span>
 
     </a>

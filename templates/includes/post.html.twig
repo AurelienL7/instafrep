@@ -137,13 +137,17 @@
         <div class="flex items-center">
 
             <!-- Hearth icon -->
-            <span class="text-xs font-semibold mr-1">{{ post.likes }}</span>
-            <button class="mr-3 p-1">
-                <img src="{{ asset('img/hearth_icon.svg') }}" alt="" class="w-4 h-4">
+            <span class="text-xs font-semibold mr-1 {{ app.user.doesLike(post) ? 'text-green-active' : '' }}">
+                {{ post.likes }}
+            </span>
+            <button class="mr-3 p-1" id="app-like-btn">
+                <a href="{{ path('app_like_post', {id: post.id}) }}"><img src="{{ asset('img/hearth_icon.svg') }}" alt="" class="w-4 h-4"></a>
             </button>
 
             <!-- Hearthbreak icon -->
-            <span class="text-xs font-semibold mr-1">{{ post.dislikes }}</span>
+            <span class="text-xs font-semibold mr-1">
+                {{ post.dislikes }}
+            </span>
             <button class="p-1">
                 <img src="{{ asset('img/hearthbreak_icon.svg') }}" alt="" class="w-4 h-4 ">
             </button>

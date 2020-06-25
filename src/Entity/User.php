@@ -333,4 +333,12 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @param Post $post
+     * @return bool
+     */
+    public function doesLike(Post $post){
+        return $this->LikedPosts->contains($post);
+    }
 }

@@ -37,7 +37,8 @@ class MainController extends AbstractController
             'nb_category' => 4,
             'posts' => $posts,
             'mostUpvotedPosts' => $mostUpvotedPosts,
-            'postForm' => $form->createView()
+            'postForm' => $form->createView(),
+            'route_name' => 'Main Stream'
         ]);
     }
 
@@ -71,7 +72,8 @@ class MainController extends AbstractController
 
         return $this->render('layouts/user_profile.html.twig', [
             'posts' => $posts,
-            'user' => $user
+            'user' => $user,
+            'route_name' => 'Profile'
         ]);
     }
 
@@ -105,7 +107,8 @@ class MainController extends AbstractController
 
         return $this->render('layouts/user_profile.html.twig', [
             'posts' => $posts,
-            'user' => $user
+            'user' => $user,
+            'route_name' => 'Profile'
         ]);
     }
 
