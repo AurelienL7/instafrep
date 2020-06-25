@@ -5,7 +5,7 @@
         <div class="flex">
             <!-- AVATAR -->
             <button class="w-12 h-12 overflow-hidden rounded-lg mr-4">
-                <img class="object-cover h-full" src="{{ asset('img/avocat.jpg') }}" alt="" />
+                <img class="object-cover h-full" src="{{ asset(upvotedPost.author.avatar) }}" alt="" />
             </button>
 
             <h3 class="font-bold">{{ upvotedPost.author.username }}</h3>

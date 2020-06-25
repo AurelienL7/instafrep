@@ -34,11 +34,8 @@ class PostController extends AbstractController
         // Si on a reçu des données
         if($form->isSubmitted()){
 
-
-
             // Si les données sont valides
             if($form->isValid()){
-
 
                 // On met à jour l'entité avant de l'enregistrer
                 $post = $form->getData();
@@ -55,4 +52,5 @@ class PostController extends AbstractController
             'postForm' => $form->createView()
         ]);
     }
+
 }

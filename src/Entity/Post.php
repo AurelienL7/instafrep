@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraint as Assert;
@@ -40,10 +42,6 @@ class Post
      */
     private $share_link;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $likes;
 
     /**
      * @ORM\Column(type="integer")
@@ -76,6 +74,11 @@ class Post
      */
     private $author;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="LikedPosts")
+     */
+    private $Likers;
+
 
     /**
      * Post constructor.
@@ -84,7 +87,6 @@ class Post
     {
         // Valeurs par défaut de l'entité Post
         $this->setShareLink('/');
-        $this->setLikes(0);
         $this->setDislikes(0);
         $this->setReplies(0);
         $this->setShares(0);
@@ -92,6 +94,7 @@ class Post
         $this->setCategory('Uncategorized');
         $this->setUpdatedAt(new \DateTime());
         $this->setCreatedAt(new \DateTime());
+        $this->Likers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -150,15 +153,9 @@ class Post
 
     public function getLikes(): ?int
     {
-        return $this->likes;
+        return $this->getLikers()->count();
     }
 
-    public function setLikes(int $likes): self
-    {
-        $this->likes = $likes;
-
-        return $this;
-    }
 
     public function getDislikes(): ?int
     {
@@ -228,6 +225,34 @@ class Post
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getLikers(): Collection
+    {
+        return $this->Likers;
+    }
+
+    public function addLiker(User $liker): self
+    {
+        if (!$this->Likers->contains($liker)) {
+            $this->Likers[] = $liker;
+            $liker->likePost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLiker(User $liker): self
+    {
+        if ($this->Likers->contains($liker)) {
+            $this->Likers->removeElement($liker);
+            $liker->unlikePost($this);
+        }
 
         return $this;
     }

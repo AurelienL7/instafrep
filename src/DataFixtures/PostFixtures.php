@@ -20,24 +20,32 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         $users = $manager->getRepository(User::class)->findAll();
 
         // Pour chaque User
-        foreach ($users as $user){
+        foreach ($users as $author){
 
-            $nbPosts = mt_rand(0, 15);
+            $nbPosts = mt_rand(0, 3);
 
             for($i=0; $i < $nbPosts; $i++){
                 $post = new Post();
+                
 
-                $post->setAuthor($user)
+                $post->setAuthor($author)
                     ->setCategory('Uncategorized')
                     ->setCreatedAt($faker->dateTimeThisYear)
                     ->setDislikes($faker->numberBetween(0, 1000))
-                    ->setLikes($faker->numberBetween(0, 1000))
                     ->setVote($faker->numberBetween(0, 1000))
                     ->setContent($faker->realText())
                     ->setShareLink('url')
                     ->setShares($faker->numberBetween(0, 1000))
                     ->setReplies($faker->numberBetween(0, 1000));
 
+                // Faire liker ce post par des utilisateurs aléatoires
+                $nbLikers = mt_rand(1, count($users) - 1);
+
+                for($i=0; $i < $nbLikers; $i++){
+                    $randomIndex = mt_rand(0, count($users) - 1);
+                    $user = $users[$randomIndex];
+                    $user->likePost($post);
+                }
 
                 $manager->persist($post);
             }

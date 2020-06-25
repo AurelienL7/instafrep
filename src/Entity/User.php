@@ -73,9 +73,21 @@ class User implements UserInterface
     private $slug;
 
     /**
+     * Posts created by this user
      * @ORM\OneToMany(targetEntity=Post::class, mappedBy="author", orphanRemoval=true)
      */
     private $posts;
+
+    /**
+     * Posts liked by this user
+     * @ORM\ManyToMany(targetEntity=Post::class, inversedBy="Likers")
+     */
+    private $LikedPosts;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $profile_cover;
 
     /**
      * User constructor.
@@ -84,7 +96,9 @@ class User implements UserInterface
     {
         $this->setCreatedAt(new \DateTime());
         $this->setAvatar("img/avocat.jpg");
+        $this->setProfileCover("img/avocat.jpg");
         $this->posts = new ArrayCollection();
+        $this->LikedPosts = new ArrayCollection();
     }
 
 
@@ -278,6 +292,44 @@ class User implements UserInterface
                 $post->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Post[]
+     */
+    public function getLikedPosts(): Collection
+    {
+        return $this->LikedPosts;
+    }
+
+    public function likePost(Post $likedPost): self
+    {
+        if (!$this->LikedPosts->contains($likedPost)) {
+            $this->LikedPosts[] = $likedPost;
+        }
+
+        return $this;
+    }
+
+    public function unlikePost(Post $likedPost): self
+    {
+        if ($this->LikedPosts->contains($likedPost)) {
+            $this->LikedPosts->removeElement($likedPost);
+        }
+
+        return $this;
+    }
+
+    public function getProfileCover(): ?string
+    {
+        return $this->profile_cover;
+    }
+
+    public function setProfileCover(string $profile_cover): self
+    {
+        $this->profile_cover = $profile_cover;
 
         return $this;
     }

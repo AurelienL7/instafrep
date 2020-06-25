@@ -25,7 +25,7 @@ class UserFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
-        for($i=0; $i <= 50; $i++){
+        for($i=0; $i <= 10; $i++){
 
             $user = new User();
 
@@ -37,6 +37,8 @@ class UserFixtures extends Fixture
             $user->setPassword($hash);
             $user->setCity($faker->city);
             $user->setBio($faker->text);
+            $user->setAvatar($faker->imageUrl($width = 640, $height = 480));
+            $user->setProfileCover($faker->imageUrl($width = 640, $height = 480));
 
 
             $manager->persist($user);
