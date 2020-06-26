@@ -1,39 +1,44 @@
-<!-- Left line -->
-<div class="flex">
-    <div class="w-16 pl-4 mt-4">
+<div class="grid grid-cols-12">
+    <!-- Left line -->
+    <div class="pl-4 mt-4">
         <img src="{{ asset('img/sub_reply_line.svg') }}" alt="">
     </div>
 
     <!-- Answers lvl 2 -->
-    <div class="border border-solid border-gray-300 category-radius p-6 mt-6 w-full">
+    <div class="col-span-11">
+        <div class="border border-solid border-gray-300 category-radius p-6 mt-6 w-full">
 
-        <div class="grid col-reply gap-4">
+            <div class="grid col-reply gap-4">
 
-            <!-- COL 1 -->
-            <div class="col-post">
-                <!-- AVATAR -->
-                <button class="w-12 h-12 overflow-hidden rounded-lg">
-                    <img class="object-cover h-full" src="{{ post.author.avatar }}" alt="" />
-                </button>
+                <!-- COL 1 -->
+                <div class="col-post">
+                    <!-- AVATAR -->
+                    <button class="w-12 h-12 overflow-hidden rounded-lg">
+                        <img class="object-cover h-full" src="{{ post.author.avatar }}" alt="" />
+                    </button>
+                </div>
+
+
+                <!-- COL 2 -->
+                <div class="flex flex-col">
+
+                    <!-- Username -->
+                    <p class="font-semibold mb-2">{{ post.author.username }}</p>
+
+                    <p>{{ post.content }}</p>
+
+                </div>
+
+
             </div>
 
-
-            <!-- COL 2 -->
-            <div class="flex flex-col">
-
-                <!-- Username -->
-                <p class="font-semibold mb-2">{{ post.author.username }}</p>
-
-                <p>{{ post.content }}</p>
-
-            </div>
-
+            {{ include('includes/reply_socials.html.twig') }}
 
         </div>
 
-        {{ include('includes/reply_socials.html.twig') }}
-
+        {{ include('includes/post_reply_1.html.twig') }}
     </div>
+
 
 
 </div>

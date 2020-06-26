@@ -65,15 +65,30 @@
         </div>
     </div>
 
+    {{ include('includes/post_reply_1.html.twig') }}
+
+    {% if post.parentId is not empty %}
+
+        {{ include('includes/post_reply_1.html.twig')}}
+
+    {% endif %}
+
+   {{ include('includes/post_reply_2.html.twig')}}
+
+   {{ include('includes/post_reply_1.html.twig')}}
+
    {{ include('includes/post_reply_1.html.twig')}}
 
    {{ include('includes/post_reply_2.html.twig')}}
 
-    {{ include('includes/post_reply_1.html.twig') }}
 
-    <div class="flex justify-center">
+
+
+
+
+    {#<div class="flex justify-center">
         <a href="" class="text-beige mt-4">Voir plus de réponses</a>
-    </div>
+    </div>#}
 
 
     <!-- Socials -->

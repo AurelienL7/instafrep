@@ -22,7 +22,7 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         // Pour chaque User
         foreach ($users as $author){
 
-            $nbPosts = mt_rand(0, 3);
+            $nbPosts = mt_rand(0, 10);
 
             for($i=0; $i < $nbPosts; $i++){
                 $post = new Post();
