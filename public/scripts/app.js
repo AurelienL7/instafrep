@@ -65,20 +65,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
         $post.addEventListener("click", function(e){
 
-            e.preventDefault();
+            const likeButton = getLikeButton(e.target)
 
-            if(
-                e.target.closest('a').classList.contains('app-like-btn') ||
-                e.target.classList.contains('app-like-btn')
-            ){
-                const id = $post.dataset.post_id;
-                console.log(id)
+            // on vérifie si on a cliqué sur un bouton de type "like"
+            if(likeButton !== null){
+                e.preventDefault();
+
+
+                // si oui, on like le post
+                const url = likeButton.href;
+                likePostOnServer(url, $post);
             }
         })
     }
 
-    // on vérifie si on a cliqué sur un bouton de type "like"
 
-    // si oui, on like le post
 });
 
+function getLikeButton(element){
+
+    if(element.classList.contains('app-like-btn')){
+        return element;
+    }
+
+    if(
+        element.closest('a') &&
+        element.closest('a').classList.contains('app-like-btn')
+    )
+    {
+        return element.closest('a');
+    }
+
+    return null;
+}
+
+function likePostOnServer(url, post){
+    const id = post.dataset.post_id;
+    console.log("J'ai cliqué sur le post " + url)
+
+    fetch(url)
+
+}

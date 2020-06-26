@@ -1,0 +1,32 @@
+<!-- Answers lvl 1 -->
+<div class="border border-solid border-gray-300 category-radius p-6 mt-6">
+
+    <div class="grid col-reply gap-4">
+
+        <!-- COL 1 -->
+        <div class="col-post">
+            <!-- AVATAR -->
+            <button class="w-12 h-12 overflow-hidden rounded-lg">
+                <img class="object-cover h-full" src="{{ post.author.avatar }}" alt="" />
+            </button>
+        </div>
+
+
+        <!-- COL 2 -->
+        <div class="flex flex-col">
+
+            <!-- Username -->
+            <p class="font-semibold mb-2">{{ post.author.username }}</p>
+
+            <p>{{ post.content }}</p>
+
+        </div>
+
+
+    </div>
+
+    {{ include('includes/reply_socials.html.twig') }}
+
+</div>
+
+

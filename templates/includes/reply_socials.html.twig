@@ -1,0 +1,33 @@
+<!-- Socials -->
+<div class="flex items-center justify-between mt-6 px-6">
+    <div class="flex items-center">
+
+
+        <!-- Reply icon -->
+        <img src="{{ asset('img/reply_icon.svg') }}" alt="" class="w-4 h-4 mr-1">
+        <span class="text-xs font-semibold mr-1">{{ post.replies }}</span>
+        <p class="text-xs">réponses</p>
+
+    </div>
+
+    <div class="flex items-center">
+
+        <!-- Hearth icon -->
+        <span class="text-xs font-semibold mr-1 {{ app.user.doesLike(post) ? 'text-green-active' : '' }}">
+                {{ post.likes }}
+            </span>
+
+        <a href="{{ path('app_like_post', {id: post.id}) }}" class="mr-3 p-1 app-like-btn">
+            <img src="{{ asset('img/hearth_icon.svg') }}" alt="" class="w-4 h-4">
+        </a>
+
+        <!-- Hearthbreak icon -->
+        <span class="text-xs font-semibold mr-1">
+                {{ post.dislikes }}
+            </span>
+        <a href="" class="p-1 app-dislike-btn">
+            <img src="{{ asset('img/hearthbreak_icon.svg') }}" alt="" class="w-4 h-4 ">
+        </a>
+    </div>
+
+</div>
