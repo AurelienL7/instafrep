@@ -16,6 +16,11 @@ class MainController extends AbstractController
      */
     public function index()
     {
+        // Si l'utilisateur n'est pas connecté, redirection sur la home
+        $user = $this->getUser();
+        if(empty($user)){
+            return $this->redirectToRoute('app_login');
+        };
 
         // On obtient une instance du repository qui gère les Posts
         $postsRepo = $this->getDoctrine()->getRepository(Post::class);

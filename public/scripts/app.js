@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-
     // Fonction permettant d'agrandir automatiquement la zone des textarea lorsque l'utilisateur entre un long texte
 
     const tx = document.getElementsByTagName('textarea');
@@ -31,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // UPVOTE COLOR CHANGE
 
-    var voteArrowUp = document.querySelector('.vote-arrow-up');
-    var arrowUp = document.querySelector('#noun_up_1920769');
-    var voteArrowDown = document.querySelector('.vote-arrow-down');
-    var arrowDown = document.querySelector('#noun_down_1920769');
+    const voteArrowUp = document.querySelector('.vote-arrow-up');
+    const arrowUp = document.querySelector('#noun_up_1920769');
+    const voteArrowDown = document.querySelector('.vote-arrow-down');
+    const arrowDown = document.querySelector('#noun_down_1920769');
 
     // Up
     voteArrowUp.addEventListener("click", function(){
@@ -52,5 +51,34 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
 
+    /*
+       --------------
+       LIKE SYSTEM
+       --------------
+     */
+
+    // on écoute la liste de posts
+    const $posts = document.querySelectorAll('article.post')
+
+    // on écoute le clic sur la liste de posts
+    for(const $post of $posts){
+
+        $post.addEventListener("click", function(e){
+
+            e.preventDefault();
+
+            if(
+                e.target.closest('a').classList.contains('app-like-btn') ||
+                e.target.classList.contains('app-like-btn')
+            ){
+                const id = $post.dataset.post_id;
+                console.log(id)
+            }
+        })
+    }
+
+    // on vérifie si on a cliqué sur un bouton de type "like"
+
+    // si oui, on like le post
 });
 
