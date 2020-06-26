@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200626131115 extends AbstractMigration
+final class Version20200626140929 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,16 +20,16 @@ final class Version20200626131115 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE post ADD parent_id_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE post ADD CONSTRAINT FK_5A8A6C8DB3750AF4 FOREIGN KEY (parent_id_id) REFERENCES post (id)');
-        $this->addSql('CREATE INDEX IDX_5A8A6C8DB3750AF4 ON post (parent_id_id)');
+        $this->addSql('ALTER TABLE post ADD parent_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE post ADD CONSTRAINT FK_5A8A6C8D727ACA70 FOREIGN KEY (parent_id) REFERENCES post (id)');
+        $this->addSql('CREATE INDEX IDX_5A8A6C8D727ACA70 ON post (parent_id)');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE post DROP FOREIGN KEY FK_5A8A6C8DB3750AF4');
-        $this->addSql('DROP INDEX IDX_5A8A6C8DB3750AF4 ON post');
-        $this->addSql('ALTER TABLE post DROP parent_id_id');
+        $this->addSql('ALTER TABLE post DROP FOREIGN KEY FK_5A8A6C8D727ACA70');
+        $this->addSql('DROP INDEX IDX_5A8A6C8D727ACA70 ON post');
+        $this->addSql('ALTER TABLE post DROP parent_id');
     }
 }

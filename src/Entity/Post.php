@@ -80,14 +80,15 @@ class Post
     private $Likers;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="ParentID")
+     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="comments")
      */
-    private $ParentId;
+    private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="ParentId")
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="parent")
      */
-    private $ParentID;
+    private $comments;
+
 
 
     /**
@@ -106,6 +107,7 @@ class Post
         $this->setCreatedAt(new \DateTime());
         $this->Likers = new ArrayCollection();
         $this->ParentID = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -268,38 +270,47 @@ class Post
         return $this;
     }
 
-    public function getParentId(): ?self
+    public function getParent(): ?self
     {
-        return $this->ParentId;
+        return $this->parent;
     }
 
-    public function setParentId(?self $ParentId): self
+    public function setParent(?self $parent): self
     {
-        $this->ParentId = $ParentId;
+        $this->parent = $parent;
 
         return $this;
     }
 
-    public function addParentID(self $parentID): self
+    /**
+     * @return Collection|self[]
+     */
+    public function getComments(): Collection
     {
-        if (!$this->ParentID->contains($parentID)) {
-            $this->ParentID[] = $parentID;
-            $parentID->setParentId($this);
+        return $this->comments;
+    }
+
+    public function addComment(self $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setParent($this);
         }
 
         return $this;
     }
 
-    public function removeParentID(self $parentID): self
+    public function removeComment(self $comment): self
     {
-        if ($this->ParentID->contains($parentID)) {
-            $this->ParentID->removeElement($parentID);
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
             // set the owning side to null (unless already changed)
-            if ($parentID->getParentId() === $this) {
-                $parentID->setParentId(null);
+            if ($comment->getParent() === $this) {
+                $comment->setParent(null);
             }
         }
 
         return $this;
     }
+
 }
