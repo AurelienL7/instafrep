@@ -79,6 +79,16 @@ class Post
      */
     private $Likers;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="ParentID")
+     */
+    private $ParentId;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="ParentId")
+     */
+    private $ParentID;
+
 
     /**
      * Post constructor.
@@ -95,6 +105,7 @@ class Post
         $this->setUpdatedAt(new \DateTime());
         $this->setCreatedAt(new \DateTime());
         $this->Likers = new ArrayCollection();
+        $this->ParentID = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -252,6 +263,41 @@ class Post
         if ($this->Likers->contains($liker)) {
             $this->Likers->removeElement($liker);
             $liker->unlikePost($this);
+        }
+
+        return $this;
+    }
+
+    public function getParentId(): ?self
+    {
+        return $this->ParentId;
+    }
+
+    public function setParentId(?self $ParentId): self
+    {
+        $this->ParentId = $ParentId;
+
+        return $this;
+    }
+
+    public function addParentID(self $parentID): self
+    {
+        if (!$this->ParentID->contains($parentID)) {
+            $this->ParentID[] = $parentID;
+            $parentID->setParentId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParentID(self $parentID): self
+    {
+        if ($this->ParentID->contains($parentID)) {
+            $this->ParentID->removeElement($parentID);
+            // set the owning side to null (unless already changed)
+            if ($parentID->getParentId() === $this) {
+                $parentID->setParentId(null);
+            }
         }
 
         return $this;
